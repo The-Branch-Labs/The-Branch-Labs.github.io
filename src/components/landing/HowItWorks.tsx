@@ -3,27 +3,27 @@ import type { ReactNode } from 'react';
 const steps = [
   {
     step: '01',
-    title: 'Join the Community',
-    description: 'Sign up and become part of our global research community of innovators and thought leaders.',
-    icon: '👥',
+    title: 'Open & Review Projects',
+    description: 'Browse through our open research projects and explore what interests you most.',
+    icon: '📂',
   },
   {
     step: '02',
-    title: 'Share Your Ideas',
-    description: 'Contribute your research, insights, and collaborate with like-minded researchers worldwide.',
-    icon: '💡',
+    title: 'Read & Understand',
+    description: 'Dive deep into projects that catch your attention and understand the research scope.',
+    icon: '📖',
   },
   {
     step: '03',
-    title: 'Collaborate & Innovate',
-    description: 'Work together on breakthrough projects and bring big ideas to life through teamwork.',
-    icon: '🤝',
+    title: 'Edit & Contribute',
+    description: 'Click the edit button and contribute on GitHub by adding ideas, research papers, or improvements.',
+    icon: '✏️',
   },
   {
     step: '04',
-    title: 'Make an Impact',
-    description: 'Create meaningful change and solve real-world challenges through collaborative research.',
-    icon: '🌟',
+    title: 'Collaborate & Build',
+    description: 'Work with other contributors to turn those ideas into reality by building them together.',
+    icon: '🚀',
   },
 ];
 

@@ -7,7 +7,7 @@ import { Hero } from '@site/src/components/landing/Hero';
 import { About } from '@site/src/components/landing/About';
 import { Features } from '@site/src/components/landing/Features';
 import { HowItWorks } from '@site/src/components/landing/HowItWorks';
-import { Testimonials } from '@site/src/components/landing/Testimonials';
+// import { Testimonials } from '@site/src/components/landing/Testimonials';
 import { CTA } from '@site/src/components/landing/CTA';
 
 // Import landing page styles
@@ -24,7 +24,8 @@ export default function Home(): ReactNode {
       <About />
       <Features />
       <HowItWorks />
-      <Testimonials />
+      {/* Testimonials are hidden until we get some reviews */}
+      {/* <Testimonials /> */}
       <CTA />
     </Layout>
   );

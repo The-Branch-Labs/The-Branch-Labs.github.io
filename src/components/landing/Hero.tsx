@@ -25,7 +25,7 @@ export function Hero(): ReactNode {
           </p>
           
           <p className="hero-description">
-            Join thousands of researchers, innovators, and thought leaders collaborating 
+            Join researchers, innovators, and thought leaders collaborating 
             to solve the world's most challenging problems through shared knowledge and big ideas.
           </p>
           
@@ -36,21 +36,6 @@ export function Hero(): ReactNode {
             <Link className="btn-secondary" to="/blog">
               Learn More
             </Link>
-          </div>
-          
-          <div className="hero-stats">
-            <div className="stat-item">
-              <div className="stat-number">10,000+</div>
-              <div className="stat-label">Researchers</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">500+</div>
-              <div className="stat-label">Projects</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">50+</div>
-              <div className="stat-label">Countries</div>
-            </div>
           </div>
         </div>
       </div>
