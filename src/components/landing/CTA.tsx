@@ -1,28 +1,31 @@
-import type { ReactNode } from 'react';
-import Link from '@docusaurus/Link';
+import { Button } from "../ui/button";
 
-export function CTA(): ReactNode {
+const CTA = () => {
   return (
-    <section className="cta-section">
-      <div className="section-container">
-        <div className="cta-content">
-          <h2 className="cta-title">
-            Ready to Start Your <span className="gradient-text">Research Journey</span>?
-          </h2>
-          <p className="cta-subtitle">
-            Join thousands of researchers and innovators who are already collaborating 
-            to solve the world's biggest challenges through shared knowledge and breakthrough discoveries.
-          </p>
-          <div className="cta-actions">
-            <Link className="btn-primary" to="/docs/intro">
-              Get Started Now
-            </Link>
-            <Link className="btn-secondary btn-secondary-inverse" to="/blog">
-              View Documentation
-            </Link>
+    <section className="py-32">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex h-[620px] items-center justify-center overflow-hidden rounded-2xl bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)),url('https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/pawel-czerwinski-O4fAgtXLRwI-unsplash.jpg')] bg-cover bg-center">
+          <div className="flex flex-col gap-8 p-4 text-center">
+            <h2 className="text-primary-foreground text-5xl font-bold">
+              Start your free trial today.
+            </h2>
+            <p className="text-primary-foreground text-lg">
+              Start with a 14-day free trial. No credit card required. No setup
+              fees. Cancel anytime.
+            </p>
+            <div className="flex flex-col justify-center gap-2 sm:flex-row">
+              <Button size="lg" variant="default">
+                Get Started
+              </Button>
+              <Button size="lg" variant="secondary">
+                Learn More
+              </Button>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export { CTA };
