@@ -123,7 +123,33 @@
   }
 
   /* Ensure clear heading hierarchy regardless of theme order */
-  .markdown h1 { @apply text-4xl font-semibold tracking-tight; }
-  .markdown h2 { @apply text-3xl font-semibold tracking-tight mt-8; }
-  .markdown h3 { @apply text-2xl font-semibold tracking-tight mt-6; }
+  .markdown h1 { @apply text-4xl font-semibold tracking-tight; display: flex; align-items: center; margin-top: 0; }
+  .markdown h2 { @apply text-3xl font-semibold tracking-tight mt-8; display: flex; align-items: center; margin-top: 0; }
+  .markdown h3 { @apply text-2xl font-semibold tracking-tight mt-6; display: flex; align-items: center; margin-top: 0; }
 }
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+
+h1 a { @apply text-4xl font-semibold tracking-tight; margin-top: 0; }
+h2 a { @apply text-3xl font-semibold tracking-tight mt-8; margin-top: 0; }
+h3 a { @apply text-2xl font-semibold tracking-tight mt-6; margin-top: 0; }
+
+header h1 { @apply text-4xl font-semibold tracking-tight; }
+header h2 { @apply text-3xl font-semibold tracking-tight mt-8; }
+header h3 { @apply text-2xl font-semibold tracking-tight mt-6; }
