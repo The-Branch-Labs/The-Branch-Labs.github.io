@@ -56,4 +56,74 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    @apply bg-background;
+  }
+  html, body {
+    min-height: 100%;
+  }
+  /* Align Docusaurus background/text variables to our tokens */
+  :root {
+    --ifm-background-color: hsl(var(--background));
+    --ifm-background-surface-color: hsl(var(--background));
+    --ifm-font-color-base: hsl(var(--foreground));
+    --ifm-color-content: hsl(var(--foreground));
+  }
+  html[data-theme='dark'] {
+    --ifm-background-color: hsl(var(--background));
+    --ifm-background-surface-color: hsl(var(--background));
+    --ifm-font-color-base: hsl(var(--foreground));
+    --ifm-color-content: hsl(var(--foreground));
+  }
+}
+
+/* Typography for Markdown/MDX content (docs + blog)
+   The Typography plugin generates `.markdown ...` selectors.
+*/
+@layer components {
+  /* Full width by default and align Docusaurus heading vars to our scale */
+  .markdown {
+    max-width: none;
+    /* Map IFM heading sizes to Tailwind scale */
+    --ifm-h1-font-size: 2.25rem; /* ~text-4xl */
+    --ifm-h2-font-size: 1.875rem; /* ~text-3xl */
+    --ifm-h3-font-size: 1.5rem; /* ~text-2xl */
+    --ifm-heading-font-weight: 600; /* font-semibold */
+    --ifm-heading-line-height: 1.2;
+
+    /* Harmonize Typography plugin colors with our design tokens */
+    --tw-prose-body: hsl(var(--foreground));
+    --tw-prose-headings: hsl(var(--foreground));
+    --tw-prose-lead: hsl(var(--muted-foreground));
+    --tw-prose-links: hsl(var(--primary));
+    --tw-prose-bold: hsl(var(--foreground));
+    --tw-prose-counters: hsl(var(--muted-foreground));
+    --tw-prose-bullets: hsl(var(--muted-foreground));
+    --tw-prose-hr: hsl(var(--border));
+    --tw-prose-quotes: hsl(var(--foreground));
+    --tw-prose-quote-borders: hsl(var(--border));
+    --tw-prose-captions: hsl(var(--muted-foreground));
+    --tw-prose-code: hsl(var(--foreground));
+    --tw-prose-pre-code: hsl(var(--foreground));
+    --tw-prose-pre-bg: transparent;
+    --tw-prose-th-borders: hsl(var(--border));
+    --tw-prose-td-borders: hsl(var(--border));
+  }
+
+  /* Keep code blocks consistent with Prism theme */
+  .markdown :where(pre):not(:where([class~="not-prose"] *)) {
+    @apply bg-transparent;
+  }
+
+  /* Narrower reading width for blog posts */
+  .theme-blog .markdown {
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Ensure clear heading hierarchy regardless of theme order */
+  .markdown h1 { @apply text-4xl font-semibold tracking-tight; }
+  .markdown h2 { @apply text-3xl font-semibold tracking-tight mt-8; }
+  .markdown h3 { @apply text-2xl font-semibold tracking-tight mt-6; }
 }

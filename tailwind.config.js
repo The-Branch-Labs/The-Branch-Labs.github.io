@@ -5,7 +5,10 @@ module.exports = {
     './docs/**/*.{md,mdx}',
     './blog/**/*.{md,mdx}',
   ],
-  darkMode: ['class'],
+  // Ensure typography rules for `.markdown` are generated
+  safelist: ['markdown'],
+  // Use Docusaurus data-theme attribute for dark mode
+  darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     container: {
       center: true,
@@ -15,6 +18,17 @@ module.exports = {
       },
     },
     extend: {
+      // Support a few utility values used by shadcnblocks
+      spacing: {
+        15: '3.75rem', // used by e.g. mt-15
+      },
+      width: {
+        83: '20.75rem',
+        166: '41.5rem',
+      },
+      zIndex: {
+        99: '99',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -71,5 +85,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    // Generate Typography rules using `.markdown` as the container class
+    require('@tailwindcss/typography')({ className: 'markdown' }),
+  ],
 };
