@@ -12,7 +12,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
-      description="Empowering collaborative research and innovation through shared knowledge and big ideas."
+      description="Your central hub for Branch Labs projects, guides, tutorials, and references."
     >
       <Hero />
       <Features />

@@ -56,16 +56,20 @@ export function Hero(): ReactNode {
           Branch Labs
         </p>
         <h1 className="mt-3 max-w-xl text-5xl font-medium font-semibold tracking-tighter lg:max-w-3xl lg:text-6xl">
-          Experimental ideas, new perspectives
+          Welcome to the Branch Labs documentation
         </h1>
         <p className="text-muted-foreground max-w-xl">
-          Join researchers, innovators, and thought leaders collaborating to solve the world's most challenging problems through shared knowledge and big ideas.
+          Your central hub for our projects and initiatives. Find guides, tutorials, and references to help you explore, learn, and contribute.
         </p>
         <div className="flex items-center gap-4">
-          <Button>Get Started</Button>
-          <Button variant="ghost">
-            Learn More <ArrowRight />
-          </Button>
+          <Link to="/docs/intro">
+            <Button>Explore Docs</Button>
+          </Link>
+          <Link to="/blog">
+            <Button variant="ghost">
+              Visit Blog <ArrowRight />
+            </Button>
+          </Link>
         </div>
 
         <div className="mt-15 flex h-full w-full items-center justify-center">

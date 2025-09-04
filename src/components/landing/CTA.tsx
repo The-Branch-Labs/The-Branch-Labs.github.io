@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import { Button } from "../ui/button";
 
 const CTA = () => {
@@ -7,19 +8,22 @@ const CTA = () => {
         <div className="flex h-[620px] items-center justify-center overflow-hidden rounded-2xl bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0)),url('https://deifkwefumgah.cloudfront.net/shadcnblocks/block/photos/pawel-czerwinski-O4fAgtXLRwI-unsplash.jpg')] bg-cover bg-center">
           <div className="flex flex-col gap-8 p-4 text-center">
             <h2 className="text-primary-foreground text-5xl font-bold">
-              Start your free trial today.
+              Start exploring the docs.
             </h2>
             <p className="text-primary-foreground text-lg">
-              Start with a 14-day free trial. No credit card required. No setup
-              fees. Cancel anytime.
+              Read the Introduction to get oriented, then dive into guides, tutorials, and references.
             </p>
             <div className="flex flex-col justify-center gap-2 sm:flex-row">
-              <Button size="lg" variant="default">
-                Get Started
-              </Button>
-              <Button size="lg" variant="secondary">
-                Learn More
-              </Button>
+              <Link to="/docs/intro">
+                <Button size="lg" variant="default">
+                  Read Introduction
+                </Button>
+              </Link>
+              <Link to="/blog">
+                <Button size="lg" variant="secondary">
+                  Visit Blog
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

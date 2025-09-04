@@ -24,6 +24,14 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
+    /* Footer variables mapped to design tokens */
+    --ifm-footer-background-color: hsl(var(--background));
+    --ifm-footer-color: hsl(var(--muted-foreground));
+    --ifm-footer-link-color: hsl(var(--foreground));
+    --ifm-footer-link-hover-color: hsl(var(--primary));
+    --ifm-footer-title-color: hsl(var(--foreground));
+    --ifm-footer-padding-vertical: 3rem;
+    --ifm-footer-padding-horizontal: 0;
   }
 
   [data-theme='dark'] {
@@ -46,6 +54,12 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+    /* Footer variables for dark theme */
+    --ifm-footer-background-color: hsl(var(--background));
+    --ifm-footer-color: hsl(var(--muted-foreground));
+    --ifm-footer-link-color: hsl(var(--foreground));
+    --ifm-footer-link-hover-color: hsl(var(--primary));
+    --ifm-footer-title-color: hsl(var(--foreground));
   }
 }
 
@@ -81,6 +95,17 @@
    The Typography plugin generates `.markdown ...` selectors.
 */
 @layer components {
+  /* Footer aligned with Tailwind tokens and site style */
+  .footer {
+    @apply bg-background text-muted-foreground border-t border-border;
+  }
+  .footer__title {
+    @apply text-foreground font-semibold;
+  }
+  .footer__link-item {
+    @apply text-foreground hover:text-primary;
+  }
+
   /* Full width by default and align Docusaurus heading vars to our scale */
   .markdown {
     max-width: none;
@@ -153,3 +178,5 @@ h3 a { @apply text-2xl font-semibold tracking-tight mt-6; margin-top: 0; }
 header h1 { @apply text-4xl font-semibold tracking-tight; }
 header h2 { @apply text-3xl font-semibold tracking-tight mt-8; }
 header h3 { @apply text-2xl font-semibold tracking-tight mt-6; }
+
+time { @apply text-sm text-muted-foreground; }

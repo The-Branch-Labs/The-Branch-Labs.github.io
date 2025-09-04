@@ -27,12 +27,10 @@ const Features = () => {
           <Card className="w-166 relative h-96 rounded-3xl border">
             <CardHeader>
               <h3 className="text-2xl font-semibold tracking-tight">
-                Customizable Workflows
+                Documentation Hub
               </h3>
               <p className="text-muted-foreground/70 mt-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt Lorem ipsum dolor sit amet,
-                consectetur
+                The sidebar gives you quick access to all sections of the docs, so you can easily find what you need.
               </p>
             </CardHeader>
             <CardContent ref={containerRef1} className="relative ml-5">
@@ -93,10 +91,10 @@ const Features = () => {
           <Card className="md:w-83 h-96 w-full rounded-3xl border">
             <CardHeader>
               <h3 className="text-2xl font-semibold tracking-tight">
-                Smart Task Tracking{" "}
+                Getting Started with Git{" "}
               </h3>
               <p className="text-muted-foreground/70">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                We use Git for version control. Make sure you have a GitHub account and know the basics. The Pro Git book is a great place to start.
               </p>
             </CardHeader>
             <CardContent
@@ -137,10 +135,10 @@ const Features = () => {
             </CardContent>
             <CardHeader className="mt-auto">
               <h3 className="text-2xl font-semibold tracking-tight">
-                Seamless Integration & Real-Time Collaboration
+                Branching & Collaboration
               </h3>
               <p className="text-muted-foreground/70">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                Create branches to safely test ideas and merge your work back into the main codebase when it’s ready.
               </p>
             </CardHeader>
           </Card>
@@ -148,12 +146,10 @@ const Features = () => {
           <Card className="w-166 h-96 overflow-hidden rounded-3xl border">
             <CardHeader>
               <h3 className="text-2xl font-semibold tracking-tight">
-                Trusted by 100k Users{" "}
+                Events & Updates{" "}
               </h3>
               <p className="text-muted-foreground/70">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt Lorem ipsum dolor sit amet,
-                consectetur
+                We host workshops, webinars, and hackathons year-round. Check the blog for announcements and participation details.
               </p>
             </CardHeader>
 
