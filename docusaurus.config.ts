@@ -92,7 +92,8 @@ const config: Config = {
       title: 'Branch Labs',
       logo: {
         alt: 'Branch Labs Logo',
-        src: 'img/logo.png',
+        src: 'img/logo_black.svg',
+        srcDark: 'img/logo_white.svg',
       },
       items: [
         {

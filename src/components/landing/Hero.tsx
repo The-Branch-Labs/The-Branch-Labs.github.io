@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import { ArrowRight } from "lucide-react";
 import React from "react";
 
@@ -10,44 +11,18 @@ import { Button } from "../ui/button";
 export function Hero(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
 
-  const images = [
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img1.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img2.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img3.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img4.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img5.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img6.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img7.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img8.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img9.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img10.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img11.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img12.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img13.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img14.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img15.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img16.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img17.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img18.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img19.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img20.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img21.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img22.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img23.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img24.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img25.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img26.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img27.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img1.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img2.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img3.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img4.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img5.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img6.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img7.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img8.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img9.jpeg",
+  const baseImagePaths = [
+    '/img/eng.jpg',
+    '/img/flask.jpg',
+    '/img/net.jpg',
+    '/img/neuron.jpg',
+    '/img/future.jpg',
+    '/img/jelly.jpg',
+    '/img/water.jpg',
   ];
+  const baseImages = baseImagePaths.map((p) => useBaseUrl(p));
+  // Repeat to ensure enough items for the 3D marquee layout
+  const images = Array.from({ length: 128 }, (_, i) => baseImages[i % baseImages.length]);
 
   return (
     <section className="relative py-32">

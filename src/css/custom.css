@@ -4,25 +4,34 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Brand palette (HSL) */
+    --raisin-black: 237 22% 17%; /* #212234 */
+    --slate-gray: 229 9% 52%;   /* #7a7e90 */
+    --lavender-web: 224 42% 88%;/* #d3daed */
+    --screamin-green: 126 88% 71%; /* #74f681 */
+    --pear: 72 77% 55%;         /* #c0e533 */
+    --white: 0 0% 100%;         /* #ffffff */
+
+    /* Design tokens mapped to palette (light) */
+    --background: var(--white);
+    --foreground: var(--raisin-black);
+    --card: var(--white);
+    --card-foreground: var(--raisin-black);
+    --popover: var(--white);
+    --popover-foreground: var(--raisin-black);
+    --primary: var(--screamin-green);
+    --primary-foreground: var(--raisin-black);
+    --secondary: var(--lavender-web);
+    --secondary-foreground: var(--raisin-black);
+    --muted: var(--lavender-web);
+    --muted-foreground: var(--slate-gray);
+    --accent: var(--pear);
+    --accent-foreground: var(--raisin-black);
+    --destructive: 0 84% 60%; /* keep default red for destructive */
+    --destructive-foreground: var(--white);
+    --border: var(--lavender-web);
+    --input: var(--lavender-web);
+    --ring: var(--screamin-green);
     --radius: 0.5rem;
     /* Footer variables mapped to design tokens */
     --ifm-footer-background-color: hsl(var(--background));
@@ -32,35 +41,69 @@
     --ifm-footer-title-color: hsl(var(--foreground));
     --ifm-footer-padding-vertical: 3rem;
     --ifm-footer-padding-horizontal: 0;
+    /* Docusaurus primary color derived from tokens */
+    --ifm-color-primary: hsl(var(--primary));
+    --ifm-color-primary-dark: hsl(var(--primary));
+    --ifm-color-primary-darker: hsl(var(--primary));
+    --ifm-color-primary-darkest: hsl(var(--primary));
+    --ifm-color-primary-light: hsl(var(--primary));
+    --ifm-color-primary-lighter: hsl(var(--primary));
+    --ifm-color-primary-lightest: hsl(var(--primary));
+
+    /* Constrain navbar logo size */
+    --ifm-navbar-logo-height: 28px;
   }
 
   [data-theme='dark'] {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    /* Design tokens mapped to palette (dark) */
+    --background: var(--raisin-black);
+    --foreground: var(--white);
+    --card: var(--raisin-black);
+    --card-foreground: var(--white);
+    --popover: var(--raisin-black);
+    --popover-foreground: var(--white);
+    --primary: var(--screamin-green);
+    --primary-foreground: var(--raisin-black);
+    --secondary: var(--slate-gray);
+    --secondary-foreground: var(--white);
+    --muted: var(--slate-gray);
+    --muted-foreground: var(--lavender-web);
+    --accent: var(--pear);
+    --accent-foreground: var(--raisin-black);
+    --destructive: 0 63% 31%;
+    --destructive-foreground: var(--white);
+    --border: var(--slate-gray);
+    --input: var(--slate-gray);
+    --ring: var(--screamin-green);
     /* Footer variables for dark theme */
     --ifm-footer-background-color: hsl(var(--background));
     --ifm-footer-color: hsl(var(--muted-foreground));
     --ifm-footer-link-color: hsl(var(--foreground));
     --ifm-footer-link-hover-color: hsl(var(--primary));
     --ifm-footer-title-color: hsl(var(--foreground));
+
+    /* Docusaurus primary (dark) */
+    --ifm-color-primary: hsl(var(--primary));
+    --ifm-color-primary-dark: hsl(var(--primary));
+    --ifm-color-primary-darker: hsl(var(--primary));
+    --ifm-color-primary-darkest: hsl(var(--primary));
+    --ifm-color-primary-light: hsl(var(--primary));
+    --ifm-color-primary-lighter: hsl(var(--primary));
+    --ifm-color-primary-lightest: hsl(var(--primary));
   }
+}
+
+/* Responsive logo sizing for the header */
+@media (max-width: 996px) {
+  :root { --ifm-navbar-logo-height: 24px; }
+}
+
+/* Ensure the logo respects the height and keeps aspect ratio */
+.navbar__logo,
+.navbar__logo img,
+.navbar__logo svg {
+  height: var(--ifm-navbar-logo-height);
+  width: auto;
 }
 
 @layer base {
