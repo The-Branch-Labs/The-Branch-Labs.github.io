@@ -3,20 +3,24 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
 import { Hero } from '@site/src/components/landing/Hero';
-import { About } from '@site/src/components/landing/About';
-import { Features } from '@site/src/components/landing/Features';
+import { Manifesto } from '@site/src/components/landing/Manifesto';
+import { Showcase } from '@site/src/components/landing/Showcase';
+import { Signal } from '@site/src/components/landing/Signal';
 import { CTA } from '@site/src/components/landing/CTA';
+import { NoiseTexture } from '@site/src/components/ui/noise-texture';
 
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Welcome to ${siteConfig.title}`}
-      description="Your central hub for Branch Labs projects, guides, tutorials, and references."
+      title={`${siteConfig.title}`}
+      description="Experimental ideas, new perspectives. Branch Labs is where curiosity meets code."
     >
+      <NoiseTexture />
       <Hero />
-      <Features />
-      <About />
+      <Manifesto />
+      <Showcase />
+      <Signal />
       <CTA />
     </Layout>
   );

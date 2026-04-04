@@ -5,43 +5,47 @@
 @layer base {
   :root {
     /* Brand palette (HSL) */
-    --raisin-black: 237 22% 17%; /* #212234 */
-    --slate-gray: 229 9% 52%;   /* #7a7e90 */
-    --lavender-web: 224 42% 88%;/* #d3daed */
-    --screamin-green: 126 88% 71%; /* #74f681 */
-    --pear: 72 77% 55%;         /* #c0e533 */
-    --white: 0 0% 100%;         /* #ffffff */
+    --cinema-black: 0 0% 4%;       /* #0a0a0a — near-black */
+    --cinema-surface: 0 0% 7%;     /* #121212 — card/elevated */
+    --cinema-surface-2: 0 0% 11%;  /* #1c1c1c — hover states */
+    --cinema-muted: 0 0% 40%;      /* #666666 — muted text/borders */
+    --cinema-text: 0 0% 88%;       /* #e0e0e0 — body text */
+    --cinema-white: 0 0% 96%;      /* #f5f5f5 — headlines */
+    --screamin-green: 126 88% 71%; /* #74f681 — primary accent */
+    --pear: 72 77% 55%;            /* #c0e533 — secondary accent */
 
-    /* Design tokens mapped to palette (light) */
-    --background: var(--white);
-    --foreground: var(--raisin-black);
-    --card: var(--white);
-    --card-foreground: var(--raisin-black);
-    --popover: var(--white);
-    --popover-foreground: var(--raisin-black);
+    /* Light mode tokens */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
     --primary: var(--screamin-green);
-    --primary-foreground: var(--raisin-black);
-    --secondary: var(--lavender-web);
-    --secondary-foreground: var(--raisin-black);
-    --muted: var(--lavender-web);
-    --muted-foreground: var(--slate-gray);
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 40%;
     --accent: var(--pear);
-    --accent-foreground: var(--raisin-black);
-    --destructive: 0 84% 60%; /* keep default red for destructive */
-    --destructive-foreground: var(--white);
-    --border: var(--lavender-web);
-    --input: var(--lavender-web);
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
     --ring: var(--screamin-green);
     --radius: 0.5rem;
-    /* Footer variables mapped to design tokens */
+
+    /* Footer */
     --ifm-footer-background-color: hsl(var(--background));
     --ifm-footer-color: hsl(var(--muted-foreground));
     --ifm-footer-link-color: hsl(var(--foreground));
     --ifm-footer-link-hover-color: hsl(var(--primary));
     --ifm-footer-title-color: hsl(var(--foreground));
-    --ifm-footer-padding-vertical: 3rem;
+    --ifm-footer-padding-vertical: 2rem;
     --ifm-footer-padding-horizontal: 0;
-    /* Docusaurus primary color derived from tokens */
+
+    /* Docusaurus primary */
     --ifm-color-primary: hsl(var(--primary));
     --ifm-color-primary-dark: hsl(var(--primary));
     --ifm-color-primary-darker: hsl(var(--primary));
@@ -50,32 +54,35 @@
     --ifm-color-primary-lighter: hsl(var(--primary));
     --ifm-color-primary-lightest: hsl(var(--primary));
 
-    /* Constrain navbar logo size */
+    /* Navbar */
     --ifm-navbar-logo-height: 28px;
+    --ifm-navbar-background-color: transparent;
+    --ifm-navbar-shadow: none;
   }
 
   [data-theme='dark'] {
-    /* Design tokens mapped to palette (dark) */
-    --background: var(--raisin-black);
-    --foreground: var(--white);
-    --card: var(--raisin-black);
-    --card-foreground: var(--white);
-    --popover: var(--raisin-black);
-    --popover-foreground: var(--white);
+    /* Cinema dark tokens */
+    --background: var(--cinema-black);
+    --foreground: var(--cinema-text);
+    --card: var(--cinema-surface);
+    --card-foreground: var(--cinema-white);
+    --popover: var(--cinema-surface);
+    --popover-foreground: var(--cinema-white);
     --primary: var(--screamin-green);
-    --primary-foreground: var(--raisin-black);
-    --secondary: var(--slate-gray);
-    --secondary-foreground: var(--white);
-    --muted: var(--slate-gray);
-    --muted-foreground: var(--lavender-web);
+    --primary-foreground: 0 0% 4%;
+    --secondary: var(--cinema-surface-2);
+    --secondary-foreground: var(--cinema-text);
+    --muted: var(--cinema-surface-2);
+    --muted-foreground: var(--cinema-muted);
     --accent: var(--pear);
-    --accent-foreground: var(--raisin-black);
+    --accent-foreground: 0 0% 4%;
     --destructive: 0 63% 31%;
-    --destructive-foreground: var(--white);
-    --border: var(--slate-gray);
-    --input: var(--slate-gray);
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
     --ring: var(--screamin-green);
-    /* Footer variables for dark theme */
+
+    /* Footer */
     --ifm-footer-background-color: hsl(var(--background));
     --ifm-footer-color: hsl(var(--muted-foreground));
     --ifm-footer-link-color: hsl(var(--foreground));
@@ -138,15 +145,31 @@
    The Typography plugin generates `.markdown ...` selectors.
 */
 @layer components {
-  /* Footer aligned with Tailwind tokens and site style */
-  .footer {
-    @apply bg-background text-muted-foreground border-t border-border;
-  }
   .footer__title {
     @apply text-foreground font-semibold;
   }
   .footer__link-item {
     @apply text-foreground hover:text-primary;
+  }
+
+  /* Navbar: transparent with blur on scroll */
+  .navbar {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-bottom: none;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .navbar--fixed-top {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: hsla(var(--background) / 0.8) !important;
+  }
+
+  /* Minimal footer */
+  .footer {
+    @apply bg-background text-muted-foreground;
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), transparent) 1;
   }
 
   /* Full width by default and align Docusaurus heading vars to our scale */

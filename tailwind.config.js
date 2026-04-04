@@ -18,9 +18,12 @@ module.exports = {
       },
     },
     extend: {
-      // Support a few utility values used by shadcnblocks
+      fontFamily: {
+        display: ['Syne', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+      },
       spacing: {
-        15: '3.75rem', // used by e.g. mt-15
+        15: '3.75rem',
       },
       width: {
         83: '20.75rem',
@@ -30,6 +33,10 @@ module.exports = {
         99: '99',
       },
       colors: {
+        surface: {
+          DEFAULT: 'hsl(var(--cinema-surface, 0 0% 7%))',
+          2: 'hsl(var(--cinema-surface-2, 0 0% 11%))',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
