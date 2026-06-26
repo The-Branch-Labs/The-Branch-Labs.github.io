@@ -50,8 +50,8 @@
     --ifm-color-primary-lighter: hsl(var(--primary));
     --ifm-color-primary-lightest: hsl(var(--primary));
 
-    /* Constrain navbar logo size */
-    --ifm-navbar-logo-height: 28px;
+    /* Constrain navbar logo size (SiteNav wordmark is 32px) */
+    --ifm-navbar-logo-height: 32px;
   }
 
   [data-theme='dark'] {
@@ -226,3 +226,333 @@ header h2 { @apply text-3xl font-semibold tracking-tight mt-8; }
 header h3 { @apply text-2xl font-semibold tracking-tight mt-6; }
 
 time { @apply text-sm text-muted-foreground; }
+
+/* =========================================================================
+   Branch Labs — design-system foundation (ported from the New Design folder)
+   GT Planar typeface + JetBrains Mono, brand palette, and the editorial
+   "manifesto" landing tokens. Most tokens are scoped under `.bl-landing`
+   so they can't collide with the global Tailwind/Docusaurus HSL tokens.
+   ========================================================================= */
+
+@font-face {
+  font-family: "GT Planar";
+  src: url("/fonts/GT-Planar-Light-Trial.woff2") format("woff2");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Planar";
+  src: url("/fonts/GT-Planar-Regular-Trial.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Planar";
+  src: url("/fonts/GT-Planar-Medium-Trial.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Planar";
+  src: url("/fonts/GT-Planar-Bold-Trial.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* GT Planar as the site-wide typeface (matches the brand). */
+:root {
+  --ifm-font-family-base: "GT Planar", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ifm-heading-font-family: "GT Planar", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---- Landing scope: editorial "manifesto" tokens ----------------------- */
+.bl-landing {
+  /* Surfaces (light, default) */
+  --bg: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #f6f8fb;          /* lavender-900 page band */
+  --bg-panel: #d3daed;           /* lavender-web soft panel */
+  /* Foreground */
+  --fg: #212234;                 /* raisin */
+  --fg-muted: #7a7e90;           /* slate */
+  --fg-subtle: #484b57;          /* slate-300 */
+  /* Lines + accents */
+  --border: #d3daed;
+  --border-strong: #7a7e90;
+  --accent: #74f681;             /* screamin' green */
+  --accent-fg: #212234;
+  --accent-strong: #0dcc20;      /* AA green on white */
+  --accent-2: #c0e533;           /* pear */
+  --gradient-green: linear-gradient(110deg, #74f681 0%, #c0e533 100%);
+  --gradient-spectrum: linear-gradient(120deg, #d3daed 0%, #c0e533 24.5%, #74f681 50%, #7a7e90 74.5%, #212234 100%);
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-pill: 999px;
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-base: 200ms;
+  /* Type */
+  --font-display: "GT Planar", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "GT Planar", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* Shadow */
+  --shadow-lg: 0 18px 40px -16px rgba(33, 34, 52, 0.18), 0 4px 12px rgba(33, 34, 52, 0.06);
+
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+}
+
+/* Dark surfaces inside the landing. Night-blue rule: the whitest foreground
+   allowed on raisin is lavender-web (#d3daed); pure #fff is forbidden. */
+.bl-landing .on-dark {
+  --bg: #212234;
+  --bg-elevated: #1b1c2a;
+  --bg-subtle: #141520;
+  --bg-panel: #1b1c2a;
+  --fg: #d3daed;
+  --fg-muted: #afb1bc;           /* slate-700 */
+  --fg-subtle: #7a7e90;
+  --border: #484b57;             /* slate-300 */
+  --border-strong: #7a7e90;
+}
+
+.bl-landing h1,
+.bl-landing h2,
+.bl-landing h3,
+.bl-landing h4 {
+  font-family: var(--font-display);
+  color: var(--fg);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.bl-landing .lead {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--fg-muted);
+}
+.bl-landing .mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "ss01";
+  font-size: 0.875rem;
+}
+.bl-landing .caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--fg-muted);
+}
+/* The landing manages its own anchor layout; neutralise the global a{flex}. */
+.bl-landing a { display: inline-flex; }
+.bl-landing ::selection { background: var(--accent); color: var(--accent-fg); }
+
+/* Inner width wrapper (matches the New Design 1320px column). */
+.bl-landing .bl-wrap { max-width: 1320px; margin: 0 auto; padding: 0 40px; width: 100%; }
+@media (max-width: 640px) { .bl-landing .bl-wrap { padding: 0 22px; } }
+
+/* Active Branches — row layout + hover */
+.bl-landing .bl-row {
+  display: grid;
+  grid-template-columns: 64px 1.6fr 1fr 0.7fr 48px;
+  gap: 28px;
+  align-items: center;
+  padding: 26px 8px;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--dur-base) var(--ease-out);
+}
+.bl-landing .bl-row:hover { background: rgba(255, 255, 255, 0.05); }
+.bl-landing .bl-row:hover .bl-row-title { color: var(--accent); }
+.bl-landing .bl-row:hover .bl-row-arrow { color: var(--accent); transform: translate(2px, -2px); }
+.bl-landing .bl-row-arrow { transition: color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
+@media (max-width: 860px) {
+  .bl-landing .bl-row { grid-template-columns: 44px 1fr auto; gap: 16px; padding: 22px 4px; }
+  .bl-landing .bl-col-fund,
+  .bl-landing .bl-col-arrow { display: none; }
+}
+
+/* Methodology — two-column grid collapses on narrow viewports. */
+.bl-landing .bl-method { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items: start; }
+@media (max-width: 860px) { .bl-landing .bl-method { grid-template-columns: 1fr; gap: 28px; } }
+
+/* FAQ — accordion question highlights green on hover. */
+.bl-landing .bl-faq-q:hover span:nth-child(2) { color: var(--accent-strong); }
+
+/* News — hero + featured editorial two-column grids, stack on narrow. */
+.bl-landing .bl-news-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; }
+.bl-landing .bl-news-featured { display: grid; grid-template-columns: 1fr 1fr; min-height: 340px; }
+@media (max-width: 860px) {
+  .bl-landing .bl-news-hero { grid-template-columns: 1fr; gap: 28px; }
+  .bl-landing .bl-news-featured { grid-template-columns: 1fr; }
+}
+
+/* About — section grids collapse on narrow viewports. */
+.bl-landing .bl-about-studio { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 64px; align-items: start; }
+.bl-landing .bl-about-cross { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.bl-landing .bl-about-team { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.bl-landing .bl-about-card { display: grid; grid-template-columns: 200px 1fr; min-height: 260px; border: 1px solid var(--border); border-radius: var(--radius-2xl); overflow: hidden; }
+.bl-landing .bl-about-principles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 860px) {
+  .bl-landing .bl-about-studio,
+  .bl-landing .bl-about-cross,
+  .bl-landing .bl-about-team { grid-template-columns: 1fr; gap: 32px; }
+  .bl-landing .bl-about-card { grid-template-columns: 1fr; }
+  .bl-landing .bl-about-principles { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .bl-landing .bl-about-principles { grid-template-columns: 1fr; }
+}
+
+/* ---- Navbar: faithful port of the New Design SiteNav -------------------- */
+:root {
+  --ifm-navbar-height: 68px;
+  --bl-gh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.51 11.51 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  --bl-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
+}
+
+/* Nav items — green on hover/active (screamin' green on dark, AA green on light). */
+.navbar__link { font-weight: 500; }
+.navbar__link:hover,
+.navbar__link--active { color: #0dcc20; }
+
+/* GitHub — outline button with octocat glyph + label. */
+.navbar-item--github {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 14px;
+  margin-left: 4px;
+  border: 1px solid #dfe3f0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.navbar-item--github::before {
+  content: "";
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask: var(--bl-gh) center / contain no-repeat;
+  mask: var(--bl-gh) center / contain no-repeat;
+}
+.navbar-item--github:hover { background: rgba(122, 126, 144, 0.1); text-decoration: none; }
+
+/* Join us — green gradient pill + arrow. */
+.navbar-item--cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  margin-left: 8px;
+  border-radius: 8px;
+  background: linear-gradient(110deg, #74f681 0%, #c0e533 100%);
+  color: #212234 !important;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.navbar-item--cta:hover { opacity: 0.9; text-decoration: none; }
+.navbar-item--cta::after {
+  content: "";
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  background-color: #212234;
+  -webkit-mask: var(--bl-arrow) center / contain no-repeat;
+  mask: var(--bl-arrow) center / contain no-repeat;
+}
+/* Drop Docusaurus's auto external-link arrow on these button items. */
+.navbar-item--github svg,
+.navbar-item--cta svg { display: none; }
+
+/* Logo: lavender wordmark on the dark marketing bar (home/news/faq), black
+   elsewhere. Toggled off the server-rendered `html.plugin-pages` class. */
+.bl-logo--onpages { display: none; }
+.bl-logo--offpages { display: block; }
+html.plugin-pages .bl-logo--onpages { display: block; }
+html.plugin-pages .bl-logo--offpages { display: none; }
+
+/* ---- Home: translucent blurred bar over the hero (SiteNav dark theme) ---- */
+html.plugin-pages .navbar {
+  background: rgba(33, 34, 52, 0.66);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 0;
+  padding-right: 0;
+}
+html.plugin-pages .navbar__inner { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+@media (max-width: 640px) { html.plugin-pages .navbar__inner { padding: 0 20px; } }
+/* Slide the hero stage up under the sticky bar so the frosted glass reveals it. */
+html.plugin-pages .bl-stage {
+  margin-top: calc(-1 * var(--ifm-navbar-height, 68px));
+  padding-top: var(--ifm-navbar-height, 68px);
+}
+html.plugin-pages .navbar__link,
+html.plugin-pages .navbar .clean-btn,
+html.plugin-pages .navbar__toggle { color: #d3daed; }
+html.plugin-pages .navbar__link:hover,
+html.plugin-pages .navbar__link--active { color: #74f681; }
+html.plugin-pages .navbar-item--github { border-color: rgba(211, 218, 237, 0.22); }
+html.plugin-pages .navbar-item--cta { color: #212234 !important; }
+
+/* ---- Custom footer (New Design SiteFooter) ----------------------------- */
+.bl-footer { padding: 0; }
+.bl-footer-inner { max-width: 1320px; margin: 0 auto; padding: 56px 40px 40px; }
+.bl-footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.bl-footer-brand { max-width: 360px; }
+.bl-footer-logo { height: 38px; width: auto; display: block; margin-bottom: 16px; }
+.bl-footer-logo--dark { display: none; }
+[data-theme="dark"] .bl-footer-logo--light { display: none; }
+[data-theme="dark"] .bl-footer-logo--dark { display: block; }
+.bl-footer-tag { margin: 0; font-size: 14px; line-height: 1.6; color: hsl(var(--muted-foreground)); }
+.bl-footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
+.bl-footer-col { display: flex; flex-direction: column; gap: 10px; }
+.bl-footer-h {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 4px;
+}
+.bl-footer-link {
+  display: inline-flex;
+  width: fit-content;
+  font-size: 14px;
+  color: hsl(var(--foreground));
+  text-decoration: none;
+}
+.bl-footer-link:hover { color: hsl(var(--primary)); text-decoration: none; }
+.bl-footer-bottom {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid hsl(var(--border));
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: hsl(var(--muted-foreground));
+}
+.bl-footer-mono { font-family: var(--ifm-font-family-monospace); font-size: 12px; }
+@media (max-width: 640px) {
+  .bl-footer-inner { padding: 40px 22px 32px; }
+  .bl-footer-cols { gap: 40px; }
+}

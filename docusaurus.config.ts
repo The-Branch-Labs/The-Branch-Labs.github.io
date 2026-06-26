@@ -30,6 +30,14 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
+  // JetBrains Mono powers the monospace captions used across the landing page.
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap',
+      type: 'text/css',
+    },
+  ],
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -88,25 +96,43 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg', // TODO
+    // The site is light-with-dark-accents by design; no user theme switcher.
+    colorMode: {
+      disableSwitch: true,
+    },
     navbar: {
-      title: 'Branch Labs',
+      // The logo is the full "Branch Labs" wordmark, so no separate title text.
+      title: '',
       logo: {
-        alt: 'Branch Labs Logo',
+        alt: 'Branch Labs',
         src: 'img/logo_black.svg',
         srcDark: 'img/logo_white.svg',
       },
       items: [
+        // The wordmark links home, so no separate "Index" item.
         {
           type: 'docSidebar',
           sidebarId: 'projectsSidebar',
           position: 'left',
           label: 'Projects',
         },
+        // News page is built but hidden from the nav for now (re-add to show it).
+        {to: '/faq', label: 'FAQ', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/about', label: 'About', position: 'left'},
         {
           href: 'https://github.com/The-Branch-Labs/thebranchlabs.github.io',
           label: 'GitHub',
           position: 'right',
+          className: 'navbar-item--github',
+        },
+        {
+          href: 'https://calendar.app.google/4sE6wNKYH9X7GnzT9',
+          label: 'Join us',
+          position: 'right',
+          className: 'navbar-item--cta',
+          target: '_blank',
+          rel: 'noopener noreferrer',
         },
       ],
     },

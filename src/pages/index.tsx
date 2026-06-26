@@ -1,23 +1,23 @@
 import type { ReactNode } from 'react';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
 import { Hero } from '@site/src/components/landing/Hero';
-import { About } from '@site/src/components/landing/About';
-import { Features } from '@site/src/components/landing/Features';
-import { CTA } from '@site/src/components/landing/CTA';
+import { Methodology } from '@site/src/components/landing/Methodology';
+import { Workshop } from '@site/src/components/landing/Workshop';
 
 export default function Home(): ReactNode {
-  const { siteConfig } = useDocusaurusContext();
+  // The navbar's dark "SiteNav" treatment is keyed off the server-rendered
+  // `html.plugin-pages` class (home is the only pages route) — see custom.css.
   return (
     <Layout
-      title={`Welcome to ${siteConfig.title}`}
-      description="Your central hub for Branch Labs projects, guides, tutorials, and references."
+      title="Big ideas to reality"
+      description="A deep-tech R&D studio in Warsaw building experimental physical-world products with applied AI, branched in public and merged into being."
     >
-      <Hero />
-      <Features />
-      <About />
-      <CTA />
+      <main className="bl-landing">
+        <Hero />
+        <Methodology />
+        <Workshop />
+      </main>
     </Layout>
   );
 }

@@ -18,6 +18,12 @@ module.exports = {
       },
     },
     extend: {
+      // Brand typefaces, so GT Planar / JetBrains Mono apply site-wide (incl.
+      // navbar + footer) instead of Tailwind Preflight's system-font default.
+      fontFamily: {
+        sans: ['"GT Planar"', 'ui-sans-serif', 'system-ui', '-apple-system', '"Segoe UI"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+      },
       // Support a few utility values used by shadcnblocks
       spacing: {
         15: '3.75rem', // used by e.g. mt-15
